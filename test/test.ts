@@ -83,6 +83,14 @@ describe("SuperIterable", () => {
       assert.equal(result, 24);
     });
   });
+
+  describe("#count", () => {
+    it("counts values", () => {
+      const it = _([1,2,3,4]);
+      const result = it.count();
+      assert.equal(result, 4);
+    });
+  });
 });
 
 describe("_", () => {

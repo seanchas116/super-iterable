@@ -27,10 +27,10 @@ describe("SuperIterable", () => {
     });
   });
 
-  describe("#withIndex", () => {
+  describe("#entries", () => {
     it("append index to each item", () => {
       const it = _([1,2,3]);
-      const result = it.withIndex().toArray();
+      const result = it.entries().toArray();
       assert.deepEqual(result, [[0,1],[1,2],[2,3]]);
     });
   });

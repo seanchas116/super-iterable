@@ -53,7 +53,7 @@ class SuperIterable<T> implements Iterable<T> {
     return reduced;
   }
 
-  withIndex() {
+  entries() {
     const xs = this;
     return _(function *() {
       let i = 0;

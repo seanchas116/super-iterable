@@ -10,12 +10,18 @@
   "devDependencies": {
     "babel": "^5.6.14",
     "chai": "^3.0.0",
+    "dts-bundle": "^0.2.0",
     "mocha": "^2.2.5",
     "typescript": "git://github.com/Microsoft/TypeScript.git#649e40b1711096de54eb325a702597d3ee62e9ef"
   },
   "scripts": {
-    "pretest": "tsc",
+    "build": "tsc",
+    "dts-bundle": "node scripts/dtsBundle.js",
+    "pretest": "npm run build && npm run dts-bundle",
     "test": "mocha --compilers js:babel/register dist/test/**/*.js"
+  },
+  "typescript": {
+    "definition": "dist/lib/super-iterable.d.ts"
   },
   "author": "",
   "license": "MIT"

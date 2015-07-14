@@ -20,14 +20,9 @@
         "!./node_modules/**/*"
     ],
     "files": [
-        "./dist/lib/KeyValueIterable.d.ts",
-        "./dist/lib/Static.d.ts",
-        "./dist/lib/SuperIterable.d.ts",
         "./dist/lib/index.d.ts",
+        "./dist/lib/super-iterable.d.ts",
         "./dist/test/test.d.ts",
-        "./lib/KeyValueIterable.ts",
-        "./lib/Static.ts",
-        "./lib/SuperIterable.ts",
         "./lib/index.ts",
         "./test/test.ts",
         "./typings/bundle.d.ts",

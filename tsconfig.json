@@ -19,6 +19,7 @@
         "!./node_modules/**/*"
     ],
     "files": [
+        "./KeyValueIterable.ts",
         "./SuperIterable.ts",
         "./index.ts",
         "./test/test.ts",

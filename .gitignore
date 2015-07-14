@@ -31,4 +31,5 @@ node_modules
 
 index.js
 SuperIterable.js
+KeyValueIterable.js
 test/**/*.js

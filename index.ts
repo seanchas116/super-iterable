@@ -1,6 +1,10 @@
 import SuperIterable from "./SuperIterable";
+import KeyValueIterable from "./KeyValueIterable";
 
-type ReturnIterator<T> = () => Iterator<T>;
+// Copy KeyValueIterable methods into SuperIterable
+for (const method of ["keys"]) {
+  SuperIterable.prototype[method] = KeyValueIterable.prototype[method];
+}
 
 function times(n: number) {
   return wrap(function *() {
@@ -20,17 +24,19 @@ function count(begin: number, step = 1) {
   });
 }
 
-function wrap<T>(xs: Iterable<T> | ReturnIterator<T>) {
+function wrap<T>(xs: any) {
   if (xs instanceof Function) {
     return new SuperIterable({
       [Symbol.iterator]: xs
     });
   }
-  return new SuperIterable(<Iterable<T>>xs);
+  return new SuperIterable(xs);
 }
 
 interface SuperIterableStatic {
-  <T>(xs: Iterable<T> | ReturnIterator<T>): SuperIterable<T>;
+  <T>(generator: () => Iterator<T>): SuperIterable<T>;
+  <K, V>(xs: Iterable<[K, V]>): KeyValueIterable<K, V>;
+  <T>(xs: Iterable<T>): SuperIterable<T>;
   times: typeof times;
   count: typeof count;
 }

@@ -189,6 +189,14 @@ describe("SuperIterable", () => {
       }
     });
   });
+
+  describe("#keys", () => {
+    it("return keys", () => {
+      const it = _([[1,2],[3,4],[5,6]]);
+      const result = it.keys();
+      assert.deepEqual(result.toArray(), [1,3,5]);
+    });
+  });
 });
 
 describe("_", () => {

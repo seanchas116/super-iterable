@@ -66,11 +66,11 @@ npm install --save super-iterable
 
 If you are using [babel](https://babeljs.io/) + node, requiring `"babel/register"` is the simplest way to enable ES6.
 
-You have to set `ignore: false` to import node_modules as ES6.
+You have to set `ignore` option to import `super-iterable` module as ES6.
 
 ```js
 require("babel/register")({
-  ignore: false
+  ignore: "node_modules/!(super-iterable)/**"
 });
 require("./example.js");
 ```

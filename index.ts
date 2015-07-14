@@ -1,9 +1,10 @@
 import SuperIterable from "./SuperIterable";
 import KeyValueIterable from "./KeyValueIterable";
 
-// Copy KeyValueIterable methods into SuperIterable
-for (const method of ["keys", "values", "toMap"]) {
-  SuperIterable.prototype[method] = KeyValueIterable.prototype[method];
+for (const method of Object.getOwnPropertyNames(KeyValueIterable.prototype)) {
+  if (method != "constructor" && method != "__proto__") {
+    SuperIterable.prototype[method] = KeyValueIterable.prototype[method];
+  }
 }
 
 function times(n: number) {

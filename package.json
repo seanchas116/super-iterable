@@ -1,7 +1,7 @@
 {
   "name": "super-iterable",
-  "version": "0.1.0",
-  "description": "super-iterable is a JavaScript library providing ES6 Iterable utilities.",
+  "version": "0.1.1",
+  "description": "An ES6 Iterable utility library",
   "main": "dist/lib/index.js",
   "directories": {
     "test": "test"

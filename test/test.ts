@@ -6,32 +6,32 @@ describe("SuperIterable", () => {
   describe("#map", () => {
     it("maps values", () => {
       const it = _([1,2,3]);
-      const mapped = it.map(x => x * 2).toArray();
-      assert.deepEqual(mapped, [2,4,6]);
+      const result = it.map(x => x * 2);
+      assert.deepEqual(result.toArray(), [2,4,6]);
     });
   });
 
   describe("#filter", () => {
     it("filters values", () => {
       const it = _([1,2,3,4]);
-      const mapped = it.filter(x => x % 2 === 0).toArray();
-      assert.deepEqual(mapped, [2,4]);
+      const result = it.filter(x => x % 2 === 0);
+      assert.deepEqual(result.toArray(), [2,4]);
     });
   });
 
   describe("#flatMap", () => {
     it("maps and concat values", () => {
       const it = _([1,2,3]);
-      const mapped = it.flatMap(x => [x, x * 2]).toArray();
-      assert.deepEqual(mapped, [1,2,2,4,3,6]);
+      const result = it.flatMap(x => [x, x * 2]);
+      assert.deepEqual(result.toArray(), [1,2,2,4,3,6]);
     });
   });
 
   describe("#entries", () => {
     it("append index to each item", () => {
       const it = _([1,2,3]);
-      const result = it.entries().toArray();
-      assert.deepEqual(result, [[0,1],[1,2],[2,3]]);
+      const result = it.entries();
+      assert.deepEqual(result.toArray(), [[0,1],[1,2],[2,3]]);
     });
   });
 

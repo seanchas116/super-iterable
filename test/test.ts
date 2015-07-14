@@ -75,6 +75,14 @@ describe("SuperIterable", () => {
       assert.deepEqual(iterated, [1,2,3]);
     });
   });
+
+  describe("#reduce", () => {
+    it("reduces values", () => {
+      const it = _([1,2,3,4]);
+      const result = it.reduce((a, x) => a * x, 1);
+      assert.equal(result, 24);
+    });
+  });
 });
 
 describe("_", () => {

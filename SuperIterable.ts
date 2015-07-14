@@ -39,6 +39,21 @@ class SuperIterable<T> implements Iterable<T> {
     });
   }
 
+
+  forEach(f: (x: T) => void) {
+    for (const x of this) {
+      f(x);
+    }
+  }
+
+  reduce(f: (prev: T, current: T) => T, init: T) {
+    let reduced = init;
+    for (const x of this) {
+      reduced = f(reduced, x);
+    }
+    return reduced;
+  }
+
   withIndex() {
     const xs = this;
     return _(function *() {
@@ -97,12 +112,6 @@ class SuperIterable<T> implements Iterable<T> {
         yield x;
       }
     });
-  }
-
-  forEach(f: (x: T) => void) {
-    for (const x of this) {
-      f(x);
-    }
   }
 
   toArray() {

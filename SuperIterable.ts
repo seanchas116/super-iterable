@@ -113,6 +113,20 @@ class SuperIterable<T> implements Iterable<T> {
     });
   }
 
+  concat(...others: Iterable<T>[]) {
+    const xs = this;
+    return _(function *() {
+      for (const x of xs) {
+        yield x;
+      }
+      for (const other of others) {
+        for (const x of other) {
+          yield x;
+        }
+      }
+    });
+  }
+
   count() {
     let count = 0;
     for (const x of this) {

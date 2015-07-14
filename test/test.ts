@@ -91,6 +91,14 @@ describe("SuperIterable", () => {
       assert.equal(result, 4);
     });
   });
+
+  describe("#concat", () => {
+    it("concats iterables", () => {
+      const it = _([1,2,3,4]);
+      const result = it.concat([5,6,7], new Set([8,9]));
+      assert.deepEqual(result.toArray(), [1,2,3,4,5,6,7,8,9]);
+    });
+  });
 });
 
 describe("_", () => {

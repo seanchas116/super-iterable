@@ -113,6 +113,45 @@ class SuperIterable<T> implements Iterable<T> {
     });
   }
 
+  every(p: (x: T) => boolean) {
+    for (const x of this) {
+      if (!p(x)) { return false; }
+    }
+    return true;
+  }
+
+  some(p: (x: T) => boolean) {
+    for (const x of this) {
+      if (p(x)) { return true; }
+    }
+    return false;
+  }
+
+  find(p: (x: T) => boolean) {
+    for (const x of this) {
+      if (p(x)) { return x; }
+    }
+    return undefined;
+  }
+
+  findIndex(p: (x: T) => boolean) {
+    let i = 0;
+    for (const x of this) {
+      if (p(x)) { return i; }
+      ++i;
+    }
+    return -1;
+  }
+
+  indexOf(elem: T) {
+    let i = 0;
+    for (const x of this) {
+      if (elem === x) { return i; }
+      ++i;
+    }
+    return -1;
+  }
+
   concat(...others: Iterable<T>[]) {
     const xs = this;
     return _(function *() {

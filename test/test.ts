@@ -99,6 +99,81 @@ describe("SuperIterable", () => {
       assert.deepEqual(result.toArray(), [1,2,3,4,5,6,7,8,9]);
     });
   });
+
+  describe("#every", () => {
+    it("returns if every elements fulfilled", () => {
+      {
+        const it = _([2,4,6]);
+        const result = it.every(x => x % 2 == 0);
+        assert(result);
+      }
+      {
+        const it = _([1,2,3]);
+        const result = it.every(x => x % 2 == 0);
+        assert(!result);
+      }
+    });
+  });
+
+  describe("#some", () => {
+    it("returns if some elements fulfilled", () => {
+      {
+        const it = _([1,2,3]);
+        const result = it.some(x => x % 2 == 0);
+        assert(result);
+      }
+      {
+        const it = _([1,3,5]);
+        const result = it.some(x => x % 2 == 0);
+        assert(!result);
+      }
+    });
+  });
+
+  describe("#find", () => {
+    it("finds element with predicate", () => {
+      {
+        const it = _([1,4,3]);
+        const result = it.find(x => x % 2 == 0);
+        assert.equal(result, 4);
+      }
+      {
+        const it = _([1,5,3]);
+        const result = it.find(x => x % 2 == 0);
+        assert.strictEqual(result, undefined);
+      }
+    });
+  });
+
+  describe("#findIndex", () => {
+    it("finds index with predicate", () => {
+      {
+        const it = _([1,4,3]);
+        const result = it.findIndex(x => x % 2 == 0);
+        assert.equal(result, 1);
+      }
+      {
+        const it = _([1,5,3]);
+        const result = it.findIndex(x => x % 2 == 0);
+        assert.strictEqual(result, -1);
+      }
+    });
+  });
+
+  describe("#indexOf", () => {
+    it("finds index with value", () => {
+      {
+        const it = _([1,4,3]);
+        const result = it.indexOf(4);
+        assert.equal(result, 1);
+      }
+      {
+        const it = _([1,5,3]);
+        const result = it.indexOf(4);
+        assert.strictEqual(result, -1);
+      }
+    });
+  });
 });
 
 describe("_", () => {

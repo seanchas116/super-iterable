@@ -174,6 +174,21 @@ describe("SuperIterable", () => {
       }
     });
   });
+
+  describe("#includes", () => {
+    it("return if elem is included", () => {
+      {
+        const it = _([1,4,3]);
+        const result = it.includes(4);
+        assert.equal(result, true);
+      }
+      {
+        const it = _([1,5,3]);
+        const result = it.includes(4);
+        assert.strictEqual(result, false);
+      }
+    });
+  });
 });
 
 describe("_", () => {

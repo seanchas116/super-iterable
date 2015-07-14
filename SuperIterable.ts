@@ -152,6 +152,13 @@ class SuperIterable<T> implements Iterable<T> {
     return -1;
   }
 
+  includes(elem: T) {
+    for (const x of this) {
+      if (elem === x) { return true; }
+    }
+    return false;
+  }
+
   concat(...others: Iterable<T>[]) {
     const xs = this;
     return _(function *() {

@@ -140,6 +140,25 @@ _(function *() {
 }); //=> SuperIterable(1,2,3)
 ```
 
+#### `_.times(count)`
+
+Creates a `SuperIterable` that enumerates 0 .. `count`.
+
+```js
+_.times(3)
+  .toArray(); //=> [0,1,2]
+```
+
+#### `_.count(begin, step = 1)`
+
+Creates a `SuperIterable` that enumerates `begin`, `begin + step`, `begin + 2 *step` ... .
+
+```js
+_.count(1, 2)
+  .take(3)
+  .toArray(); //=> [1,3,5]
+```
+
 ### `SuperIterable`
 
 `SuperIterable` is a convenient wrapper for Iterable objects.

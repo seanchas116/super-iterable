@@ -1,7 +1,7 @@
 {
   "name": "super-iterable",
   "version": "0.1.0",
-  "description": "",
+  "description": "super-iterable is a JavaScript library providing ES6 Iterable utilities.",
   "main": "dist/lib/index.js",
   "directories": {
     "test": "test"
@@ -23,6 +23,14 @@
   "typescript": {
     "definition": "dist/lib/super-iterable.d.ts"
   },
-  "author": "",
-  "license": "MIT"
+  "author": "Ryohei Ikegami <iofg2100@gmail.com>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/seanchas116/super-iterable.git"
+  },
+  "bugs": {
+    "url": "https://github.com/seanchas116/super-iterable/issues"
+  },
+  "homepage": "https://github.com/seanchas116/super-iterable#readme"
 }

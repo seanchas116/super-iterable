@@ -32,5 +32,11 @@
   "bugs": {
     "url": "https://github.com/seanchas116/super-iterable/issues"
   },
-  "homepage": "https://github.com/seanchas116/super-iterable#readme"
+  "homepage": "https://github.com/seanchas116/super-iterable#readme",
+  "keywords": [
+    "es6",
+    "iterable",
+    "lazy",
+    "typescript"
+  ]
 }

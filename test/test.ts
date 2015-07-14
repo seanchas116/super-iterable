@@ -205,6 +205,14 @@ describe("SuperIterable", () => {
       assert.deepEqual(result.toArray(), [2,4,6]);
     });
   });
+
+  describe("#get", () => {
+    it("get value fron index", () => {
+      const it = _([1,2,3,4]);
+      const result = it.get(2);
+      assert.equal(result, 3);
+    });
+  });
 });
 
 describe("_", () => {

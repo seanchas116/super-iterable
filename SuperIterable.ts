@@ -181,6 +181,15 @@ class SuperIterable<T> implements Iterable<T> {
     return count;
   }
 
+  get(n: number) {
+    let i = 0;
+    for (const x of this) {
+      if (i === n) { return x; }
+      ++i;
+    }
+    return undefined;
+  }
+
   toArray() {
     return Array.from(this);
   }

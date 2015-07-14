@@ -1,5 +1,5 @@
 import {assert} from "chai";
-import _ from "../wrap";
+import _ from "../index";
 
 describe("SuperIterable", () => {
 
@@ -26,6 +26,46 @@ describe("SuperIterable", () => {
       assert.deepEqual(mapped, [1,2,2,4,3,6]);
     });
   });
+
+  describe("#withIndex", () => {
+    it("append index to each item", () => {
+      const it = _([1,2,3]);
+      const result = it.withIndex().toArray();
+      assert.deepEqual(result, [[0,1],[1,2],[2,3]]);
+    });
+  });
+
+  describe("#take", () => {
+    it("takes first n values", () => {
+      const it = _([1,2,3]);
+      const result = it.take(2);
+      assert.deepEqual(result.toArray(), [1,2]);
+    });
+  });
+
+  describe("#takeWhile", () => {
+    it("takes values while predicate is true", () => {
+      const it = _([2,4,6,5,4]);
+      const result = it.takeWhile(x => x % 2 == 0);
+      assert.deepEqual(result.toArray(), [2,4,6]);
+    });
+  });
+
+  describe("#drop", () => {
+    it("drops first n values", () => {
+      const it = _([1,2,3]);
+      const result = it.drop(2);
+      assert.deepEqual(result.toArray(), [3]);
+    });
+  });
+
+  describe("#dropWhile", () => {
+    it("drops values while predicate is true", () => {
+      const it = _([2,4,6,5,4]);
+      const result = it.dropWhile(x => x % 2 == 0);
+      assert.deepEqual(result.toArray(), [5,4]);
+    });
+  });
 });
 
 describe("_", () => {
@@ -42,5 +82,22 @@ describe("_", () => {
 
     const it = _(gen);
     assert.deepEqual(it.toArray(), [1,2,3]);
+  });
+
+  describe("times", () => {
+    it("creates 0..times Iterable", () => {
+      const it = _.times(3);
+      assert.deepEqual(it.toArray(), [0,1,2]);
+    });
+  });
+  describe("count", () => {
+    it("creates counting Iterable", () => {
+      const it = _.count(1, 2).take(3);
+      assert.deepEqual(it.toArray(), [1,3,5]);
+    });
+    it("creates counting Iterable without step", () => {
+      const it = _.count(1).take(3);
+      assert.deepEqual(it.toArray(), [1,2,3]);
+    });
   });
 });

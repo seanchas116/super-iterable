@@ -27,3 +27,20 @@ describe("SuperIterable", () => {
     });
   });
 });
+
+describe("_", () => {
+  it("creates SuperIterable from Iterable", () => {
+    const it = _([1,2,3]);
+    assert.deepEqual(it.toArray(), [1,2,3]);
+  });
+  it("creates SuperIterabl from generator functions", () => {
+    function *gen() {
+      yield 1;
+      yield 2;
+      yield 3;
+    }
+
+    const it = _(gen);
+    assert.deepEqual(it.toArray(), [1,2,3]);
+  });
+});

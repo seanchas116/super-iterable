@@ -19,9 +19,11 @@
         "!./node_modules/**/*"
     ],
     "files": [
+        "./SuperIterable.ts",
         "./test/test.ts",
         "./typings/bundle.d.ts",
         "./typings/chai/chai.d.ts",
-        "./typings/mocha/mocha.d.ts"
+        "./typings/mocha/mocha.d.ts",
+        "./wrap.ts"
     ]
 }

@@ -1,4 +1,5 @@
 import {assert} from "chai";
+import _ from "../wrap";
 
 describe("SuperIterable", () => {
   describe("#map", () => {

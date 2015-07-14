@@ -17,6 +17,32 @@ class SuperIterable<T> implements Iterable<T> {
     });
   }
 
+  filter(func: (x: T) => boolean) {
+    const xs = this;
+    return new SuperIterable({
+      *[Symbol.iterator]() {
+        for (const x of xs) {
+          if (func(x)) {
+            yield x;
+          }
+        }
+      }
+    });
+  }
+
+  flatMap<U>(func: (x: T) => Iterable<U>) {
+    const xs = this;
+    return new SuperIterable({
+      *[Symbol.iterator]() {
+        for (const x of xs) {
+          for (const y of func(x)) {
+            yield y;
+          }
+        }
+      }
+    });
+  }
+
   toArray() {
     return Array.from(this);
   }

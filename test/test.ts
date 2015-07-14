@@ -66,6 +66,15 @@ describe("SuperIterable", () => {
       assert.deepEqual(result.toArray(), [5,4]);
     });
   });
+
+  describe("#forEach", () => {
+    it("iterates values", () => {
+      const iterated = [];
+      const it = _([1,2,3]);
+      it.forEach(x => iterated.push(x));
+      assert.deepEqual(iterated, [1,2,3]);
+    });
+  });
 });
 
 describe("_", () => {

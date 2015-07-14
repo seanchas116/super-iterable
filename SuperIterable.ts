@@ -99,6 +99,12 @@ class SuperIterable<T> implements Iterable<T> {
     });
   }
 
+  forEach(f: (x: T) => void) {
+    for (const x of this) {
+      f(x);
+    }
+  }
+
   toArray() {
     return Array.from(this);
   }

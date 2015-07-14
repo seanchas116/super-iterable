@@ -15,7 +15,7 @@
   },
   "scripts": {
     "pretest": "tsc",
-    "test": "mocha --compilers js:babel/register"
+    "test": "mocha --compilers js:babel/register dist/test/**/*.js"
   },
   "author": "",
   "license": "MIT"

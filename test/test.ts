@@ -197,6 +197,14 @@ describe("SuperIterable", () => {
       assert.deepEqual(result.toArray(), [1,3,5]);
     });
   });
+
+  describe("#values", () => {
+    it("return values", () => {
+      const it = _([[1,2],[3,4],[5,6]]);
+      const result = it.values();
+      assert.deepEqual(result.toArray(), [2,4,6]);
+    });
+  });
 });
 
 describe("_", () => {

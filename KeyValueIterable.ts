@@ -11,4 +11,12 @@ class KeyValueIterable<K, V> extends SuperIterable<[K, V]> {
       }
     });
   }
+  values() {
+    const xs = this;
+    return _(function *() {
+      for (const [k, v] of xs) {
+        yield v;
+      }
+    });
+  }
 }

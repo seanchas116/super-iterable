@@ -1,8 +1,5 @@
 import SuperIterable from "./SuperIterable";
 
-function *generatorFunc() {}
-const GeneratorFunction = generatorFunc.constructor
-
 type ReturnIterator<T> = () => Iterator<T>;
 
 export default

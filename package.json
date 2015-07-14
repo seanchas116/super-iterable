@@ -6,12 +6,11 @@
   "directories": {
     "test": "test"
   },
-  "dependencies": {
-  },
+  "dependencies": {},
   "devDependencies": {
     "chai": "^3.0.0",
     "mocha": "^2.2.5",
-    "typescript": "^1.5.0-beta"
+    "typescript": "git://github.com/Microsoft/TypeScript.git#649e40b1711096de54eb325a702597d3ee62e9ef"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"

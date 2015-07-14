@@ -2,6 +2,8 @@
 
 [![NPM](https://nodei.co/npm/super-iterable.png?downloads=true&downloadRank=true&stars=true)](https://nodei.co/npm/super-iterable/)
 
+[![Build Status](https://travis-ci.org/seanchas116/super-iterable.svg?branch=master)](https://travis-ci.org/seanchas116/super-iterable)
+
 super-iterable is a JavaScript library providing ES6 Iterable utilities.
 
 ## Features

@@ -1,3 +1,5 @@
+import _ from "./wrap";
+
 export default
 class SuperIterable<T> implements Iterable<T> {
   [Symbol.iterator]: () => Iterator<T>;
@@ -8,23 +10,19 @@ class SuperIterable<T> implements Iterable<T> {
 
   map<U>(func: (x: T) => U) {
     const xs = this;
-    return new SuperIterable({
-      *[Symbol.iterator]() {
-        for (const x of xs) {
-          yield func(x);
-        }
+    return _(function *() {
+      for (const x of xs) {
+        yield func(x);
       }
     });
   }
 
   filter(func: (x: T) => boolean) {
     const xs = this;
-    return new SuperIterable({
-      *[Symbol.iterator]() {
-        for (const x of xs) {
-          if (func(x)) {
-            yield x;
-          }
+    return _(function *() {
+      for (const x of xs) {
+        if (func(x)) {
+          yield x;
         }
       }
     });
@@ -32,12 +30,10 @@ class SuperIterable<T> implements Iterable<T> {
 
   flatMap<U>(func: (x: T) => Iterable<U>) {
     const xs = this;
-    return new SuperIterable({
-      *[Symbol.iterator]() {
-        for (const x of xs) {
-          for (const y of func(x)) {
-            yield y;
-          }
+    return _(function *() {
+      for (const x of xs) {
+        for (const y of func(x)) {
+          yield y;
         }
       }
     });

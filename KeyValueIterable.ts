@@ -19,4 +19,7 @@ class KeyValueIterable<K, V> extends SuperIterable<[K, V]> {
       }
     });
   }
+  toMap() {
+    return new Map(this);
+  }
 }

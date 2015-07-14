@@ -213,6 +213,31 @@ describe("SuperIterable", () => {
       assert.equal(result, 3);
     });
   });
+
+  describe("#toArray", () => {
+    it("converts into Array", () => {
+      const it = _([1,2,3,4]);
+      const result = it.toArray();
+      assert.deepEqual(result, [1,2,3,4]);
+    });
+  });
+
+  describe("#toSet", () => {
+    it("converts into Array", () => {
+      const it = _([1,2,3,4]);
+      const result = it.toSet();
+      assert(result.has(1));
+      assert(!result.has(5));
+    });
+  });
+
+  describe("#toMap", () => {
+    it("converts into Array", () => {
+      const it = _([[1,2],[3,4],[5,6]]);
+      const result = it.toMap();
+      assert.equal(result.get(1), 2);
+    });
+  });
 });
 
 describe("_", () => {

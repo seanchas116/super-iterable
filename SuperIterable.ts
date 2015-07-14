@@ -193,4 +193,8 @@ class SuperIterable<T> implements Iterable<T> {
   toArray() {
     return Array.from(this);
   }
+
+  toSet() {
+    return new Set(this);
+  }
 }

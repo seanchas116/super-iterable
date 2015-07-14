@@ -2,7 +2,7 @@ import SuperIterable from "./SuperIterable";
 import KeyValueIterable from "./KeyValueIterable";
 
 // Copy KeyValueIterable methods into SuperIterable
-for (const method of ["keys", "values"]) {
+for (const method of ["keys", "values", "toMap"]) {
   SuperIterable.prototype[method] = KeyValueIterable.prototype[method];
 }
 

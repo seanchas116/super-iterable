@@ -191,10 +191,6 @@ class SuperIterable<T> implements Iterable<T> {
   toArray() {
     return Array.from(this);
   }
-
-  toSet() {
-    return new Set(this);
-  }
 }
 
 export
@@ -214,9 +210,6 @@ class KeyValueIterable<K, V> extends SuperIterable<[K, V]> {
         yield v;
       }
     });
-  }
-  toMap() {
-    return new Map(this);
   }
 }
 

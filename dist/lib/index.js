@@ -188,9 +188,6 @@ export class SuperIterable {
     toArray() {
         return Array.from(this);
     }
-    toSet() {
-        return new Set(this);
-    }
 }
 export class KeyValueIterable extends SuperIterable {
     keys() {
@@ -208,9 +205,6 @@ export class KeyValueIterable extends SuperIterable {
                 yield v;
             }
         });
-    }
-    toMap() {
-        return new Map(this);
     }
 }
 for (const method of Object.getOwnPropertyNames(KeyValueIterable.prototype)) {

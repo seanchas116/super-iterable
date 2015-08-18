@@ -20,10 +20,6 @@ var _getIterator = require("babel-runtime/core-js/get-iterator")["default"];
 
 var _Array$from = require("babel-runtime/core-js/array/from")["default"];
 
-var _Set = require("babel-runtime/core-js/set")["default"];
-
-var _Map = require("babel-runtime/core-js/map")["default"];
-
 var _Object$getOwnPropertyNames = require("babel-runtime/core-js/object/get-own-property-names")["default"];
 
 Object.defineProperty(exports, "__esModule", {
@@ -1233,11 +1229,6 @@ var SuperIterable = (function () {
         value: function toArray() {
             return _Array$from(this);
         }
-    }, {
-        key: "toSet",
-        value: function toSet() {
-            return new _Set(this);
-        }
     }]);
 
     return SuperIterable;
@@ -1401,11 +1392,6 @@ var KeyValueIterable = (function (_SuperIterable) {
                     }
                 }, callee$2$0, this, [[3, 16, 20, 28], [21,, 23, 27]]);
             }));
-        }
-    }, {
-        key: "toMap",
-        value: function toMap() {
-            return new _Map(this);
         }
     }]);
 

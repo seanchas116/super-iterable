@@ -21,12 +21,10 @@ export declare class SuperIterable<T> implements Iterable<T> {
     count(): number;
     get(n: number): T;
     toArray(): T[];
-    toSet(): Set<T>;
 }
 export declare class KeyValueIterable<K, V> extends SuperIterable<[K, V]> {
     keys(): SuperIterable<K>;
     values(): SuperIterable<V>;
-    toMap(): Map<K, V>;
 }
 export interface Static {
     <T>(generator: () => Iterator<T>): SuperIterable<T>;

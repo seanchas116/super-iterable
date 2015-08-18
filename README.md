@@ -64,21 +64,6 @@ npm install --save super-iterable
 
 ## How to use
 
-**You need ES6 support to require `super-iterable`**.
-
-### babel + Node
-
-If you are using [babel](https://babeljs.io/) + node, requiring `"babel/register"` is the simplest way to enable ES6.
-
-You have to set `ignore` option to import `super-iterable` module as ES6.
-
-```js
-require("babel/register")({
-  ignore: "node_modules/!(super-iterable)/**"
-});
-require("./example.js");
-```
-
 ```js
 // example.js
 import _ from "super-iterable";
@@ -88,9 +73,9 @@ import _ from "super-iterable";
 
 ### TypeScript + ES6
 
-*Latest TypeScript from git (as of 2015-07-14) is required*
-
 If you are using TypeScript with ES6 output, you can use super-iterable with type definitions included in the project.
+
+TypeScript >= 1.6 is recommended, since it has added support for generator functions.
 
 Install [tsd](https://github.com/DefinitelyTyped/tsd) and run `tsd install` to include super-iterable `.d.ts` in your project.
 
@@ -101,7 +86,7 @@ tsd install
 You'll get `/typings/tsd.d.ts` like:
 
 ```ts
-/// <reference path="../node_modules/super-iterable/dist/lib/super-iterable.d.ts" />
+/// <reference path="../node_modules/super-iterable/dist/super-iterable.d.ts" />
 ```
 
 Then,
@@ -379,22 +364,4 @@ Converts the `SuperIterable` into an Array.
 ```js
 _([1,2,3,4])
   .toArray(); //=> [1,2,3,4]
-```
-
-#### `SuperIterable#toSet()`
-
-Converts the `SuperIterable` into a Set.
-
-```js
-_([1,2,3,1])
-  .toSet(); //=> Set {1,2,3}
-```
-
-#### `SuperIterable#toMap()`
-
-Converts the `SuperIterable` into a Map.
-
-```js
-_([[1, "one"], [2, "two"]])
-  .toMap(); //=> Map {1 => "one", 2 => "two"}
 ```

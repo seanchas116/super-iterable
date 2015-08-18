@@ -12,7 +12,7 @@
     "chai": "^3.0.0",
     "dts-bundle": "^0.2.0",
     "mocha": "^2.2.5",
-    "typescript": "git://github.com/Microsoft/TypeScript.git#649e40b1711096de54eb325a702597d3ee62e9ef"
+    "typescript": "git://github.com/Microsoft/TypeScript.git#e86f20785925b0b0c0f9a54f392f92ca8124eb14"
   },
   "scripts": {
     "build": "tsc",

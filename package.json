@@ -17,7 +17,8 @@
   "scripts": {
     "build": "tsc",
     "dts-bundle": "node scripts/dtsBundle.js",
-    "pretest": "npm run build && npm run dts-bundle",
+    "babel": "babel --optional runtime dist/lib/index.js -o dist/lib/es5.js",
+    "pretest": "npm run build && npm run dts-bundle && npm run babel",
     "test": "mocha --compilers js:babel/register dist/test/**/*.js"
   },
   "typescript": {

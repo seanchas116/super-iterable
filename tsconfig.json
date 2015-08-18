@@ -21,8 +21,7 @@
     ],
     "files": [
         "./dist/index.d.ts",
-        "./dist/lib/index.d.ts",
-        "./dist/lib/super-iterable.d.ts",
+        "./dist/super-iterable.d.ts",
         "./lib/index.ts",
         "./typings/bundle.d.ts",
         "./typings/chai/chai.d.ts",

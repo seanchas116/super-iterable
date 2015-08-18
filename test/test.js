@@ -1,5 +1,5 @@
 import {assert} from "chai";
-import _ from "../lib/index";
+import _ from "../dist/lib/es5";
 
 describe("SuperIterable", () => {
 

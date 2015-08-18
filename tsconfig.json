@@ -20,11 +20,10 @@
         "!./node_modules/**/*"
     ],
     "files": [
+        "./dist/index.d.ts",
         "./dist/lib/index.d.ts",
         "./dist/lib/super-iterable.d.ts",
-        "./dist/test/test.d.ts",
         "./lib/index.ts",
-        "./test/test.ts",
         "./typings/bundle.d.ts",
         "./typings/chai/chai.d.ts",
         "./typings/mocha/mocha.d.ts"

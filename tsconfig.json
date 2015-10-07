@@ -15,13 +15,11 @@
         "outDir": "./dist"
     },
     "filesGlob": [
-        "./**/*.ts",
-        "./**/*.tsx",
+        "./lib/**/*.ts",
+        "./typings/**/*.ts",
         "!./node_modules/**/*"
     ],
     "files": [
-        "./dist/index.d.ts",
-        "./dist/super-iterable.d.ts",
         "./lib/index.ts",
         "./typings/assertion-error/assertion-error.d.ts",
         "./typings/chai/chai.d.ts",

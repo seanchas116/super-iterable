@@ -18,14 +18,11 @@
   },
   "scripts": {
     "build": "tsc",
-    "dts-bundle": "node scripts/dtsBundle.js",
     "babel": "babel --optional runtime dist/index.js -o dist/es5.js",
-    "pretest": "npm run build && npm run dts-bundle && npm run babel",
+    "pretest": "npm run build && npm run babel",
     "test": "mocha --compilers js:babel/register test/**/*.js"
   },
-  "typescript": {
-    "definition": "dist/super-iterable.d.ts"
-  },
+  "typings": "dist/index.d.ts",
   "author": "Ryohei Ikegami <iofg2100@gmail.com>",
   "license": "MIT",
   "repository": {

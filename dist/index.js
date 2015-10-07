@@ -1,4 +1,4 @@
-export class SuperIterable {
+class SuperIterable {
     constructor(iterable) {
         this[Symbol.iterator] = iterable[Symbol.iterator].bind(iterable);
     }
@@ -189,7 +189,8 @@ export class SuperIterable {
         return Array.from(this);
     }
 }
-export class KeyValueIterable extends SuperIterable {
+exports.SuperIterable = SuperIterable;
+class KeyValueIterable extends SuperIterable {
     keys() {
         const xs = this;
         return _(function* () {
@@ -207,6 +208,7 @@ export class KeyValueIterable extends SuperIterable {
         });
     }
 }
+exports.KeyValueIterable = KeyValueIterable;
 for (const method of Object.getOwnPropertyNames(KeyValueIterable.prototype)) {
     if (method != "constructor" && method != "__proto__") {
         SuperIterable.prototype[method] = KeyValueIterable.prototype[method];
@@ -239,4 +241,4 @@ function count(begin, step = 1) {
 }
 _.times = times;
 _.count = count;
-export default _;
+exports.default = _;

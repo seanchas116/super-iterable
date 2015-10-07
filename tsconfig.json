@@ -23,8 +23,9 @@
         "./dist/index.d.ts",
         "./dist/super-iterable.d.ts",
         "./lib/index.ts",
-        "./typings/bundle.d.ts",
+        "./typings/assertion-error/assertion-error.d.ts",
         "./typings/chai/chai.d.ts",
-        "./typings/mocha/mocha.d.ts"
+        "./typings/mocha/mocha.d.ts",
+        "./typings/tsd.d.ts"
     ]
 }

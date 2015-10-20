@@ -17,9 +17,7 @@
     "typescript": "^1.6.2"
   },
   "scripts": {
-    "build": "tsc",
-    "babel": "babel --optional runtime dist/index.js -o dist/es5.js",
-    "pretest": "npm run build && npm run babel",
+    "pretest": "tsc",
     "test": "mocha --compilers js:babel/register test/**/*.js"
   },
   "typings": "dist/index.d.ts",

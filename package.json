@@ -6,13 +6,10 @@
   "directories": {
     "test": "test"
   },
-  "dependencies": {
-    "babel-runtime": "^5.8.25"
-  },
+  "dependencies": {},
   "devDependencies": {
     "babel": "^5.8.23",
     "chai": "^3.3.0",
-    "dts-bundle": "^0.3.0",
     "mocha": "^2.3.3",
     "typescript": "^1.6.2"
   },

@@ -62,21 +62,7 @@ for (const fib of fibs.take(50)) {
 npm install --save super-iterable
 ```
 
-## Babel config
-
-If you are using Babel, you have to override `ignore` option to import `super-iterable` module as ES6 (Babel ignores JavaScript files inside `node_modules` by default).
-
-Example:
-
-```js
-require("babel/register")({
-  ignore: "node_modules/!(super-iterable)/**"
-});
-require("./example.js");
-```
-
 ## How to use
-
 
 ```js
 // example.js
@@ -86,6 +72,16 @@ const _ = require("super-iterable");
 import _ from "super-iterable";
 
 // your code...
+```
+
+### Babel + Node
+
+If you are using Babel + Node, you have to override `ignore` option to import `super-iterable` module as ES6 (Babel ignores JavaScript files inside `node_modules` by default).
+
+Example:
+
+```
+babel-node --ignore false example.js
 ```
 
 ### TypeScript + ES6

@@ -2,7 +2,7 @@
   "name": "super-iterable",
   "version": "0.4.0",
   "description": "An ES6 Iterable utility library with TypeScript support",
-  "main": "dist/es5.js",
+  "main": "dist/index.js",
   "directories": {
     "test": "test"
   },

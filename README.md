@@ -12,7 +12,7 @@ super-iterable is a JavaScript library providing ES6 Iterable utilities.
 * Lazy evaluation (it's nature of Iterables)
 * TypeScript `.d.ts` included (only for ES6 output mode)
 
-super-iterable itself is written in TypeScript.
+super-iterable itself is written in ES6 and TypeScript.
 
 ## Examples
 
@@ -41,7 +41,7 @@ for (const out of _.times(50).map(fizzbuzz)) {
 ### Fibonacci sequence
 
 ```js
-import _ from "super-iterable";
+const _ = require("super-iterable");
 
 const fibs = _(function* () {
   let a = 0;
@@ -62,10 +62,27 @@ for (const fib of fibs.take(50)) {
 npm install --save super-iterable
 ```
 
+## Babel config
+
+If you are using Babel, you have to override `ignore` option to import `super-iterable` module as ES6 (Babel ignores JavaScript files inside `node_modules` by default).
+
+Example:
+
+```js
+require("babel/register")({
+  ignore: "node_modules/!(super-iterable)/**"
+});
+require("./example.js");
+```
+
 ## How to use
+
 
 ```js
 // example.js
+
+const _ = require("super-iterable");
+// or you can do this in Babel
 import _ from "super-iterable";
 
 // your code...
@@ -73,27 +90,13 @@ import _ from "super-iterable";
 
 ### TypeScript + ES6
 
-If you are using TypeScript with ES6 output, you can use super-iterable with type definitions included in the project.
+Since super-iterable provides TypeScript type definitions by default, it is also nice to use it in TypeScript.
 
-TypeScript >= 1.6 is recommended, since it has added support for generator functions.
-
-Install [tsd](https://github.com/DefinitelyTyped/tsd) and run `tsd install` to include super-iterable `.d.ts` in your project.
-
-```
-tsd install
-```
-
-You'll get `/typings/tsd.d.ts` like:
-
-```ts
-/// <reference path="../node_modules/super-iterable/dist/super-iterable.d.ts" />
-```
-
-Then,
+TypeScript >= 1.8 (nightly) is recommended, since it has started support CommonJS when targeting ES6.
 
 ```ts
 // example.ts
-import _ from "super-iterable";
+import _ = require("super-iterable");
 
 // your code...
 ```

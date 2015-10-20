@@ -1,7 +1,7 @@
 {
-    "version": "1.6.2",
     "compilerOptions": {
         "target": "es6",
+        "module": "commonjs",
         "isolatedModules": false,
         "jsx": "react",
         "experimentalDecorators": true,
@@ -20,10 +20,15 @@
         "!./node_modules/**/*"
     ],
     "files": [
-        "./lib/index.ts",
-        "./typings/assertion-error/assertion-error.d.ts",
-        "./typings/chai/chai.d.ts",
-        "./typings/mocha/mocha.d.ts",
-        "./typings/tsd.d.ts"
-    ]
+        "lib/index.ts",
+        "lib/KeyValueIterable.ts",
+        "lib/Static.ts",
+        "lib/SuperIterable.ts",
+        "typings/assertion-error/assertion-error.d.ts",
+        "typings/chai/chai.d.ts",
+        "typings/mocha/mocha.d.ts",
+        "typings/tsd.d.ts"
+    ],
+    "exclude": [],
+    "compileOnSave": false
 }

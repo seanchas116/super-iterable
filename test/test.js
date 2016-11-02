@@ -84,6 +84,30 @@ describe("SuperIterable", () => {
     });
   });
 
+  describe("#winBy", () => {
+    it("picks a winner", () => {
+      const it = _([1,2,3,4]);
+      const result = it.winBy(a => a, (a, b) => (a < b && b <= 3));
+      assert.equal(result, 3);
+    });
+  });
+
+  describe("#maxBy", () => {
+    it("returns the max item", () => {
+      const it = _([1,4,3,2]);
+      const result = it.maxBy(a => a);
+      assert.equal(result, 4);
+    });
+  });
+
+  describe("#minBy", () => {
+    it("returns the min item", () => {
+      const it = _([2,3,1,4]);
+      const result = it.minBy(a => a);
+      assert.equal(result, 1);
+    });
+  });
+
   describe("#count", () => {
     it("counts values", () => {
       const it = _([1,2,3,4]);
@@ -219,6 +243,31 @@ describe("SuperIterable", () => {
       const it = _([1,2,3,4]);
       const result = it.toArray();
       assert.deepEqual(result, [1,2,3,4]);
+    });
+  });
+
+  describe("#toSet", () => {
+    it("converts into a Set", () => {
+      const it = _([1,2,3,4,1,3,3]);
+      const result = it.toSet();
+
+      for (const item of it) {
+        assert(result.has(item));
+      }
+      assert.equal(_(result).count(), 4)
+    });
+  });
+
+  describe("#toMap", () => {
+    it("converts into Map", () => {
+      const it = _([
+        { k: 1, v: false },
+        { k: 2, v: false },
+        { k: 3, v: true },
+        { k: 4, v: false }
+      ]);
+      const result = it.toMap(k => k.k);
+      assert(result.get(3).v);
     });
   });
 });

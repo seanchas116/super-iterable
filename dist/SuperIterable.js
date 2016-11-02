@@ -1,4 +1,5 @@
-var _ = require("./index");
+"use strict";
+const _ = require("./index");
 class SuperIterable {
     constructor(iterable) {
         this[Symbol.iterator] = iterable[Symbol.iterator].bind(iterable);
@@ -42,6 +43,24 @@ class SuperIterable {
             reduced = f(reduced, x);
         }
         return reduced;
+    }
+    winBy(f, p) {
+        let reduced = undefined;
+        let cached = undefined;
+        for (const x of this) {
+            const current = f(x);
+            if (cached === undefined || p(cached, current)) {
+                reduced = x;
+                cached = current;
+            }
+        }
+        return reduced;
+    }
+    maxBy(f) {
+        return this.winBy(f, (prev, curr) => curr > prev);
+    }
+    minBy(f) {
+        return this.winBy(f, (prev, curr) => curr < prev);
     }
     entries() {
         const xs = this;
@@ -188,6 +207,12 @@ class SuperIterable {
     }
     toArray() {
         return Array.from(this);
+    }
+    toSet() {
+        return new Set(this);
+    }
+    toMap(k) {
+        return new Map(this.map(x => [k(x), x]));
     }
 }
 module.exports = SuperIterable;

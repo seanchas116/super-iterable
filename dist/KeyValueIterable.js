@@ -1,5 +1,6 @@
-var SuperIterable = require("./SuperIterable");
-var _ = require("./index");
+"use strict";
+const SuperIterable = require("./SuperIterable");
+const _ = require("./index");
 class KeyValueIterable extends SuperIterable {
     keys() {
         const xs = this;

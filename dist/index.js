@@ -1,3 +1,4 @@
+"use strict";
 function wrap(xs) {
     if (xs instanceof Function) {
         return new SuperIterable({
@@ -26,6 +27,6 @@ function count(begin, step = 1) {
 _.times = times;
 _.count = count;
 module.exports = _;
-var SuperIterable = require("./SuperIterable");
+const SuperIterable = require("./SuperIterable");
 require("./KeyValueIterable");
 module.exports = _;

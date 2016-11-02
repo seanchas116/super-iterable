@@ -6,6 +6,9 @@ declare class SuperIterable<T> implements Iterable<T> {
     flatMap<U>(func: (x: T) => Iterable<U>): SuperIterable<U>;
     forEach(f: (x: T) => void): void;
     reduce(f: (prev: T, current: T) => T, init: T): T;
+    winBy<U>(f: (current: T) => U, p: (prev: U, current: U) => boolean): T;
+    maxBy(f: (x: T) => number): T;
+    minBy(f: (x: T) => number): T;
     entries(): SuperIterable<(number | T)[]>;
     take(n: number): SuperIterable<T>;
     takeWhile(f: (x: T) => boolean): SuperIterable<T>;
@@ -21,5 +24,7 @@ declare class SuperIterable<T> implements Iterable<T> {
     count(): number;
     get(n: number): T;
     toArray(): T[];
+    toSet(): Set<T>;
+    toMap<K>(k: (x: T) => K): Map<K, T>;
 }
 export = SuperIterable;

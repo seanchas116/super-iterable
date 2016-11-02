@@ -30,3 +30,6 @@ build/Release
 node_modules
 
 dist/test
+
+# editor files
+.vscode/

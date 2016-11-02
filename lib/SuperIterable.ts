@@ -52,6 +52,27 @@ class SuperIterable<T> implements Iterable<T> {
     return reduced;
   }
 
+  winBy<U>(f: (current: T) => U, p: (prev: U, current: U) => boolean) {
+    let reduced: T = undefined;
+    let cached: U = undefined;
+    for (const x of this) {
+      const current = f(x);
+      if (cached === undefined || p(cached, current)) {
+        reduced = x;
+        cached = current;
+      }
+    }
+    return reduced;
+  }
+
+  maxBy(f: (x: T) => number) {
+    return this.winBy(f, (prev, curr) => curr > prev);
+  }
+
+  minBy(f: (x: T) => number) {
+    return this.winBy(f, (prev, curr) => curr < prev);
+  }
+
   entries() {
     const xs = this;
     return _(function *() {
@@ -191,6 +212,14 @@ class SuperIterable<T> implements Iterable<T> {
 
   toArray() {
     return Array.from(this);
+  }
+
+  toSet() {
+    return new Set(this);
+  }
+
+  toMap<K>(k: (x: T) => K) {
+    return new Map(this.map(x => <[K, T]>[k(x), x]));
   }
 }
 

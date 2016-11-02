@@ -14,7 +14,7 @@
     "typescript": "^1.8.0-dev.20151020"
   },
   "scripts": {
-    "pretest": "tsc",
+    "pretest": "node_modules/typescript/bin/tsc",
     "test": "mocha --compilers js:babel/register test/**/*.js"
   },
   "typings": "dist/index.d.ts",
